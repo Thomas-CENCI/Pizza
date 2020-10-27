@@ -1,41 +1,42 @@
 import React from 'react';
-import Pizza from './Pizza';
+import './App.css';
+import Order from './Order';
+import About from './About';
+import Nav from './Nav';
+import SignIn from './SignIn';
 import Background from './pics/BG_pizza.jpg';
-import Logo from './Logo';
 import Titre from './Titre';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 var sectionStyle = {
-backgroundImage: `url(${Background})`,
-height: "100%",
-width: "100%",
-backgroundPosition: "center",
-backgroundRepeat: "no-repeat",
-backgroundSize: "cover",
+	backgroundImage: `url(${Background})`,
+	height: "100%",
+	width: "100%",
+	backgroundPosition: "center",
+	backgroundRepeat: "no-repeat",
+	backgroundSize: "cover",
 };
 
 function App() {
   return(
+  	<Router>
     <div className='app' style={sectionStyle}>
-    	<div className="title">
-			<Logo />
-	        <Titre text='Pizz' color='green' />
-	        <Titre text='à' color='white' />
-	        <Titre text='gogo' color='red' />
-        </div>     
-        <div className='content'>
-        	<div>
-    			<Pizza name='Regina' price='10$'/>
-    			<Pizza name='Nordique' price='15$'/>
-    			<Pizza name='Savoyarde' price='16$'/>
-    		</div>
-    		<div>
-    			<Pizza name='Kebab' price='12$'/>
-    			<Pizza name='Hawaïenne' price='13$'/>
-    			<Pizza name='Vegan' price='14$'/>
-    		</div>
-    	</div>
+    	<Nav/>
+    	<Switch>
+    		<Route path='/' exact component={Home} />
+    		<Route path='/about' component={About} />
+    		<Route path='/order'  component={Order} />
+    		<Route path='/signin'  component={SignIn} />
+    	</Switch>
     </div>
+    </Router>
     );
 }
+
+const Home = () => (
+	<div style={{color: "white"}}>
+		<h1> Home Page </h1>
+	</div>
+	);
 
 export default App;
