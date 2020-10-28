@@ -1,11 +1,10 @@
 import React from 'react';
 import './App.css';
-import Order from './Order';
-import About from './About';
-import Nav from './Nav';
-import SignIn from './SignIn';
+import Order from './components/Order';
+import About from './components/About';
+import Nav from './components/Nav';
+import SignIn from './components/SignIn';
 import Background from './pics/BG_pizza.jpg';
-import Titre from './Titre';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 var sectionStyle = {

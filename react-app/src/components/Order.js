@@ -1,6 +1,5 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Pizza from './Pizza';
-import './App.css';
 
 var orderStyle = {
   color: "white",
@@ -13,14 +12,17 @@ var contentStyle = {
   justifyContent: "space-around",
   marginLeft: "30px",
   marginTop: "100px"
-}
+};
 
 function Order() {
+
   return(
         <div className='content' style={contentStyle}>
-        	<h1 style={orderStyle}> La selection de la mama :</h1>
+	        <header style={{color: "white"}}>
+	        	<h1>Notre sélection :</h1>
+	    	</header>
         	<div>
-    			<Pizza name='Regina' price='10$'/>
+        		<Pizza name='Regina' price='10$'/>
     			<Pizza name='Nordique' price='15$'/>
     		</div>
     		<div>
@@ -30,9 +32,13 @@ function Order() {
     		<div>
     			<Pizza name='Hawaïenne' price='13$'/>
     			<Pizza name='Vegan' price='14$'/>
-    		</div>
+       		</div>
     	</div>
     );
 }
 
 export default Order;
+
+/**
+
+*/

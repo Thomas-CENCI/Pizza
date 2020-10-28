@@ -1,5 +1,5 @@
 import React from 'react';
-import image from "./pics/pizzaiolo.jpg"
+import image from "../pics/pizzaiolo.jpg"
 
 var imageStyle = {
 	backgroundImage: `url(${image})`,

@@ -5,8 +5,7 @@ function Titre({text, color}) {
 	var fontStyle1 = {
 	font: 'italic 1.2em "Snell Roundhand"',
 	color: color,
-	fontSize: "100px",
-	marginLeft: "75px",
+	fontSize: "50px",
 };
 
   return <h1 style={fontStyle1}>{text}</h1>;

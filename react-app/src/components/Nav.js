@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from './Logo';
-import './App.css';
+import Titre from './Titre';
 import {Link} from "react-router-dom";
 
 var navStyle = {
@@ -27,6 +27,9 @@ function Nav() {
     	<Link to="/">
     		<Logo/>
     	</Link>
+      <Link to="/">
+        <Titre text="Pizz'à Gogo !" color="white" />
+      </Link>
 		<ul className="nav-links" style={navLinks}>
 			<Link style={{color: "white"}} to="/about">
 				<li>A propos</li>
