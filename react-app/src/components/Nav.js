@@ -10,6 +10,9 @@ var navStyle = {
   maxHeight: "50px",
   backgroundColor: "rgb(73, 79, 82)",
   color: "white",
+  position: "fixed",
+  top: "0",
+  width: "100%"
 };
 
 var navLinks = {
@@ -27,8 +30,8 @@ function Nav() {
     	<Link to="/">
     		<Logo/>
     	</Link>
-      <Link to="/">
-        <Titre text="Pizz'à Gogo !" color="white" />
+      <Link to="/" style={{textDecoration: "none"}}>
+        <Titre text="Toto l'pizzaiolo" color="linear-gradient(90deg, rgba(5,110,45,1) 15%, rgba(255,255,255,1) 40%, rgba(180,8,8,1) 85%)"/>
       </Link>
 		<ul className="nav-links" style={navLinks}>
 			<Link style={{color: "white"}} to="/about">

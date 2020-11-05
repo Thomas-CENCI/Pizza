@@ -1,44 +1,49 @@
-import React, {useState, useEffect} from 'react';
-import Pizza from './Pizza';
+import React from 'react';
+import PizzaCards from './PizzaCards';
+import Background from '../pics/BG_pizza4.jpg';
 
-var orderStyle = {
+var textStyle = {
   color: "white",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-arround",
+  marginTop: "10vh",
+  position: "fixed"
 };
 
 var contentStyle = {
   display: "flex",
+  flexDirection: "column",
   minHeight: "100vh",
-  width: "60%",
+  width: "100%",
   justifyContent: "space-around",
   marginLeft: "30px",
-  marginTop: "100px"
+  marginTop: "10vh",  
 };
+
+var orderStyle = {
+  backgroundImage: `url(${Background})`,
+  backgroundRepeat: "no-repeat",
+  backgroundAttachment: "fixed",
+  height: "100%",
+  width: "100%",
+  backgroundPosition: "center",
+  backgroundSize: "cover",
+  overflowY: "scroll"
+}
 
 function Order() {
 
   return(
-        <div className='content' style={contentStyle}>
-	        <header style={{color: "white"}}>
-	        	<h1>Notre sélection :</h1>
-	    	</header>
-        	<div>
-        		<Pizza name='Regina' price='10$'/>
-    			<Pizza name='Nordique' price='15$'/>
-    		</div>
-    		<div>
-    			<Pizza name='Savoyarde' price='16$'/>
-    			<Pizza name='Kebab' price='12$'/>
-    		</div>
-    		<div>
-    			<Pizza name='Hawaïenne' price='13$'/>
-    			<Pizza name='Vegan' price='14$'/>
-       		</div>
+    <div style={orderStyle}>
+      <header style={textStyle}>
+        <h1>Notre sélection :</h1>
+      </header>
+      <div className='content' style={contentStyle}>
+        <PizzaCards/>
     	</div>
-    );
+    </div>
+  );
 }
 
 export default Order;
-
-/**
-
-*/

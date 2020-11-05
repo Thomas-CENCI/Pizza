@@ -8,18 +8,22 @@ import Background from './pics/BG_pizza.jpg';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 var sectionStyle = {
+	color: "white",
+	marginTop: "10vh",
 	backgroundImage: `url(${Background})`,
+	backgroundRepeat: "no-repeat",
+	backgroundAttachment: "fixed",
 	height: "100%",
 	width: "100%",
 	backgroundPosition: "center",
-	backgroundRepeat: "no-repeat",
 	backgroundSize: "cover",
+	overflowY: "scroll"
 };
 
 function App() {
   return(
   	<Router>
-    <div className='app' style={sectionStyle}>
+    <div className='app'>
     	<Nav/>
     	<Switch>
     		<Route path='/' exact component={Home} />
@@ -33,7 +37,7 @@ function App() {
 }
 
 const Home = () => (
-	<div style={{color: "white"}}>
+	<div style={sectionStyle}>
 		<h1> Home Page </h1>
 	</div>
 	);
