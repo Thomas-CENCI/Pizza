@@ -3,9 +3,10 @@ import image from "../pics/pizzaiolo.jpg"
 
 var imageStyle = {
 	backgroundImage: `url(${image})`,
-	height: "50px",
-	width: "50px",
-	marginLeft: "30px"
+	height: "75px",
+	width: "75px",
+	marginLeft: "30px",
+	alignItems: "center"
 };
 
 function Logo() {

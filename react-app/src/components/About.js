@@ -12,7 +12,8 @@ var aboutStyle = {
 	width: "100%",
 	backgroundPosition: "center",
 	backgroundSize: "cover",
-	overflowY: "scroll"
+	overflowY: "scroll",
+	overflow: "hidden"
 };
 
 function About() {

@@ -1,12 +1,5 @@
 import React from 'react';
-import image from "../pics/pizza.jpg"
-
-var imageStyle = {
-	backgroundImage: `url(${image})`,
-	height: "40%",
-	width: "80%",
-	borderRadius: "15px"
-};
+import {Link} from "react-router-dom";
 
 var pizzaStyle = {
   border: "2px solid black",
@@ -23,16 +16,32 @@ var pizzaStyle = {
   marginRight: "10px",
 };
 
+var buttonStyle = {
+	border: "0",
+	textDecoration: "none",
+	backgroundColor: "orange",
+	padding: "10px 15px",
+	marginTop: "2vh",
+	font: 'bold 1em sans-serif',
+	borderRadius: "4px",
+};
+
+/** Make a pop-up button for Ingredients : https://fr.w3docs.com/snippets/css/comment-creer-une-forme-popup-avec-css-et-javascript.html */
 function Pizza({pizza}) {
-	console.log(pizza.Ingredients, typeof(pizza.Ingredients))
 	return(
 	<div style={pizzaStyle}>
-		<img src={image} style={imageStyle} alt="pizza" />
-		<h2>{pizza.Nom}</h2>
-		<h1>{pizza.Prix}€</h1>
+		<h2 style={{font: 'bold 2em sans-serif', position: "sticky"}}>{pizza.Nom}</h2>
+		<h1 style={{font: 'bold 3em sans-serif', position: "sticky"}}>{pizza.Prix}€</h1>
 		<ul>
-			<li style={{listStyle: "none", textAlign: "center", textDecoration: "underline"}}>Ingrédients :</li>
-			{pizza.Ingredients.map((ingredient) => <li key={ingredient.id} style={{listStyle: "none", display: "inline"}}>- {ingredient.Nom} </li>)}
+			<li style={{listStyle: "none", textAlign: "center", textDecoration: "underline", display: "flex", flexDirection: "column"}}>Ingrédients :</li>
+			{pizza.Ingredients.map((ingredient) => <li key={ingredient.id} style={{listStyle: "none", display: "inline", display: "flex"}}>- {ingredient.Nom} </li>)}
+			<li style={{listStyle: "none", alignItems: "center", display: "flex", justifyContent: "space-around"}}>
+				<Link to="/order">
+					<button style={buttonStyle}>
+					Ajouter
+					</button>
+				</Link>
+			</li>
 		</ul>
 	</div>
 	)

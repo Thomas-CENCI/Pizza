@@ -25,15 +25,17 @@ var orderStyle = {
   backgroundImage: `url(${Background})`,
   backgroundRepeat: "no-repeat",
   backgroundAttachment: "fixed",
-  height: "100%",
-  width: "100%",
   backgroundPosition: "center",
   backgroundSize: "cover",
-  overflowY: "scroll"
+  height: "100%",
+  width: "100%",
+  overflowY: "scroll",
+  overflowX: "scroll",
 }
 
-function Order() {
 
+/** NEED TO MAKE A GRID FOR THE CARDS : https://developer.mozilla.org/fr/docs/Web/CSS/grid */
+function Order() {
   return(
     <div style={orderStyle}>
       <header style={textStyle}>

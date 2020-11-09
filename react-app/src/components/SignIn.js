@@ -11,7 +11,8 @@ var signStyle = {
 	width: "100%",
 	backgroundPosition: "center",
 	backgroundSize: "cover",
-	overflowY: "scroll"
+	overflowY: "scroll",
+	overflow: "hidden"
 };
 
 function Signin() {
