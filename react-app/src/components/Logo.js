@@ -3,8 +3,8 @@ import image from "../pics/pizzaiolo.jpg"
 
 var imageStyle = {
 	backgroundImage: `url(${image})`,
-	height: "75px",
-	width: "75px",
+	height: "5em",
+	width: "5em",
 	marginLeft: "30px",
 	alignItems: "center"
 };

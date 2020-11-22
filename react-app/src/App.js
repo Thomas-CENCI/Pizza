@@ -1,9 +1,10 @@
 import React from 'react';
 import './App.css';
-import Order from './components/Order';
+import Pizzas from './components/Pizzas';
 import About from './components/About';
 import Nav from './components/Nav';
 import SignIn from './components/SignIn';
+import Cart from './components/Cart';
 import Background from './pics/BG_pizza.jpg';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import {Link} from "react-router-dom";
@@ -69,8 +70,9 @@ function App() {
     	<Switch>
     		<Route path='/' exact component={Home} />
     		<Route path='/about' component={About} />
-    		<Route path='/order'  component={Order} />
+    		<Route path='/pizzas'  component={Pizzas} />
     		<Route path='/signin'  component={SignIn} />
+    		<Route path='/cart'  component={Cart} />
     	</Switch>
     </div>
     </Router>
@@ -80,7 +82,7 @@ function App() {
 const Home = () => (
 	<div style={sectionStyle}>
 		<div style={textStyle}>
-			<h1> Benvenuto ! </h1>
+			<h1 style={{color:'orange'}}> Benvenuto ! </h1>
 			<ul style={textStyle2}>
 				<li>
 				Notre chef a confectionné pour vous les meilleures pizzas au feu de bois. Il hérite ce savoir faire de sa Mama qui a séduit l'Italie avec des saveurs des plus incroyables de par leur simplicité et leur authenticité. Si vous cherchez à déguter les vraies saveurs de l'Italie, vous êtes au bon endroit : chez Bellissima !

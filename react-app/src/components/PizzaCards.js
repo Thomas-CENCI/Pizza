@@ -17,11 +17,13 @@ class PizzaCards extends Component {
 
 	render() {
 		return(
-				<ul style={{justiifyContent: "space-arround", display: "flex", alignItems: "center"}}>
+			<div>
+				<ul style={{justiifyContent: "space-arround", display: "flex", flexDirection: "column", alignItems: "center"}}>
 					{this.state.pizzas.map(pizza =>
 						<li key={pizza.id} style={{listStyle: "none"}}><Pizza pizza={pizza}/></li>
 					)}
 				</ul>
+			</div>
 			);
 	}
 }

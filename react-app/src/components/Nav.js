@@ -18,13 +18,15 @@ var navStyle = {
 };
 
 var navLinks = {
-  width: "30%",
+  maxWidth: "70%",
   display: "flex",
   justifyContent: "space-around",
   alignItems: "center",
   listStyle: "none",
   textAlign: "right",
-  position: "right"
+  position: "right",
+  marginRight: "2em",
+  position: "sticky"
 }
 
 var buttonStyle = {
@@ -32,11 +34,14 @@ var buttonStyle = {
   textDecoration: "none",
   color: "white",
   backgroundColor: "rgb(113, 119, 122)",
-  padding: "7px 12px",
+  padding: "0.4em 1em",
   marginTop: "2vh",
+  marginRight: "2vh",
   font: 'bold 1.5em sans-serif',
   borderRadius: "6px",
   boxShadow: "0px 3px 10px rgba(0, 0, 0, 0.3)",
+  maxHeight: "2em",
+  maxWidth: "10em"
 }
 
 function Nav() {
@@ -47,7 +52,7 @@ function Nav() {
       		<Logo/>
       	</Link>
         <Link to="/" style={{textDecoration: "none"}}>
-          <Titre text="Bellissima !" color="linear-gradient(90deg, rgba(5,110,45,1) 15%, rgba(255,255,255,1) 40%, rgba(180,8,8,1) 85%)"/>
+          <Titre text="Bellissima !" color="orange"/>
         </Link>
       </div>
 		  <ul className="nav-links" style={navLinks}>
@@ -69,6 +74,13 @@ function Nav() {
           <Link style={{color: "white"}} to="/signin">
             <button style={buttonStyle}>
               Se connecter
+            </button>
+          </Link>
+        </li>
+        <li>
+          <Link style={{color: "white"}} to="/cart">
+            <button style={buttonStyle}>
+              Panier
             </button>
           </Link>
         </li>

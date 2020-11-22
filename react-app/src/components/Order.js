@@ -1,51 +1,66 @@
 import React from 'react';
-import PizzaCards from './PizzaCards';
-import Background from '../pics/BG_pizza4.jpg';
-
-var textStyle = {
-  color: "white",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "space-arround",
-  marginTop: "10vh",
-  position: "fixed"
-};
-
-var contentStyle = {
-  display: "flex",
-  flexDirection: "column",
-  minHeight: "100vh",
-  width: "100%",
-  justifyContent: "space-around",
-  marginLeft: "30px",
-  marginTop: "10vh",  
-};
+import {Link} from "react-router-dom";
 
 var orderStyle = {
-  backgroundImage: `url(${Background})`,
-  backgroundRepeat: "no-repeat",
-  backgroundAttachment: "fixed",
-  backgroundPosition: "center",
-  backgroundSize: "cover",
-  height: "100%",
-  width: "100%",
-  overflowY: "scroll",
-  overflowX: "scroll",
-}
+  border: "2px solid black",
+  height: "20em",
+  width: "60em",
+  background: "rgba(0, 0, 0, 0.6)",
+  borderRadius: "15px",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "space-around",
+  marginTop: "15px",
+  marginLeft: "10px",
+  marginRight: "10px",
+};
 
+var buttonStyle = {
+  border: "0",
+  textDecoration: "none",
+  backgroundColor: "orange",
+  padding: "10px 15px",
+  marginTop: "2vh",
+  font: 'bold 1.2em sans-serif',
+  borderRadius: "4px",
+};
 
-/** NEED TO MAKE A GRID FOR THE CARDS : https://developer.mozilla.org/fr/docs/Web/CSS/grid */
-function Order() {
+var buttonStyle2 = {
+  border: "0",
+  textDecoration: "none",
+  backgroundColor: "red",
+  padding: "10px 15px",
+  marginTop: "2vh",
+  marginLeft: "10px",
+  marginRight: "10px",
+  font: 'bold 1.2em sans-serif',
+  borderRadius: "4px",
+};
+
+function supprimer() {
+  console.log("test")
+};
+
+/** Make the button "Ajouter" add the pizza to a new Commande */
+function Order({order, prix}) {
   return(
     <div style={orderStyle}>
-      <header style={textStyle}>
-        <h1>Notre sélection :</h1>
-      </header>
-      <div className='content' style={contentStyle}>
-        <PizzaCards/>
-    	</div>
+      <h2 style={{font: 'bold 3em "Snell Roundhand"', marginLeft:"0.5em", color: "orange"}}>{order.Client.Nom} {order.Client.Prenom} - 22€</h2>
+
+      <ul style={{lineHeight: "200%"}}>
+
+        <li style={{font: 'bold 1.5em sans-serif', color: "white", listStyle: "none", textAlign: "center", textDecoration: "underline", display: "flex", flexDirection: "row", marginLeft: "1em"}}>Pizzas :</li>
+        {order.Pizzas.map((pizza) => <li key={pizza.id} style={{font: '1.2em sans-serif', color: "white", listStyle: "none", display: "inline", marginLeft: "1em"}}>{pizza.Nom}</li>)}
+
+        <li style={{listStyle: "none", float:"right", marginLeft: "1em"}}>
+          <button style={buttonStyle2} onClick="supprimer()">
+            Supprimer
+          </button>
+        </li>
+
+      </ul>
     </div>
-  );
+  )
 }
 
 export default Order;
