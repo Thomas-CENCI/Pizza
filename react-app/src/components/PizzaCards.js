@@ -1,31 +1,31 @@
-import React, {Component} from 'react';
-import Pizza from './Pizza'
+import React, { useState, useEffect } from 'react';
+import Pizza from './Pizza';
+import axios from 'axios';
 
-class PizzaCards extends Component {
-	constructor() {
-		super();
-		this.state = {
-			pizzas: []
-		}
-	}
+function PizzaCards({tempPizzas, setPizzas}) {
+	const [pizzas, addPizzas] = useState([])
 
-	componentDidMount() {
-		fetch('/api/v1/Pizzas')
-			.then(res => (res.json()))
-			.then(pizzas => this.setState({pizzas}, () => console.log('Pizzas fetched', pizzas)));
-	}
+	useEffect(() => {
+		axios
+			.get("/api/v1/Pizzas")
+			.then(response => {
+				addPizzas(response.data);
+			})
+			.catch(err => console.log("Erreur"));
+		 // eslint-disable-next-line react-hooks/exhaustive-deps
+		}, []);
 
-	render() {
-		return(
-			<div>
-				<ul style={{justiifyContent: "space-arround", display: "flex", flexDirection: "column", alignItems: "center"}}>
-					{this.state.pizzas.map(pizza =>
-						<li key={pizza.id} style={{listStyle: "none"}}><Pizza pizza={pizza}/></li>
-					)}
-				</ul>
-			</div>
-			);
-	}
+	console.log("tempPizzas :", tempPizzas)
+
+	return(
+		<div>s
+			<ul style={{justifyContent: "space-arround", display: "flex", flexDirection: "column", alignItems: "center"}}>
+				{pizzas.map(pizza =>
+					<li key={pizza.id} style={{listStyle: "none"}}><Pizza pizza={pizza} tempPizzas={tempPizzas} setPizzas={setPizzas}/></li>
+				)}
+			</ul>
+		</div>
+	);
 }
 
 export default PizzaCards;

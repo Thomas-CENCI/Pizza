@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PizzaCards from './PizzaCards';
 import Background from '../pics/BG_pizza4.jpg';
 import {Link} from "react-router-dom";
@@ -45,35 +45,57 @@ var cartStyle = {
   border: "2px solid black",
   position: "absolute",
   maxHeight: "50%",
-  width: "17%",
+  width: "16%",
   background: "rgba(0, 0, 0, 0.6)",
   borderRadius: "15px",
   marginTop: "18vh",
   marginLeft: "10px",
   marginRight: "10px",
+  position: 'fixed'
+  };
+
+function TempCart({pizza, index, removePizza}) {
+  return(
+    <div className='pizza' style={{color:"white", marginLeft:"10px", marginBottom:"10px", display:"flex", flexDirection:"row", justifyContent:'space-around'}}>
+    {pizza.name}
+    <div>
+      <button onClick={() => removePizza(index)} style={{borderRadius:"6px", width: "2em", heigth:"5em", backgroundColor:"red", textDecoration:"none", textAlign:"center"}}>X</button>
+    </div>
+    </div>
+  )
+};
+
+function Menu() {
+  const [tempPizzas, setPizzas] = useState([]);
+
+  const removePizza = index => {
+    const newPizzas = [...tempPizzas];
+    newPizzas.splice(index, 1);
+    setPizzas(newPizzas);
   }
 
-
-function Pizzas() {
   return(
-    <div style={orderStyle}>
+    <div className='app' style={orderStyle}>
 
       <div className='content' style={contentStyle}>
-        <PizzaCards/>
+        <PizzaCards tempPizzas={tempPizzas} setPizzas={setPizzas}/>
       </div>
 
-      <Link style={{color: "white", position:"absolute", marginTop:"10vh"}} to="/cart">
+      <Link style={{color: "white", position:"absolute", marginTop:"10vh", position:"fixed"}} to="/cart">
         <button style={buttonStyle}>
           Valider la commande
         </button>
       </Link>
 
-      <div style={cartStyle}>
+      <div className='pizza-list' style={cartStyle}>
         <h1 style={{font: 'bold 1.5em sans-serif', position:"sticky", color: "white", textAlign:"center", marginTop:"10px", marginBottom:"10px"}}>Votre commande</h1>
+        {tempPizzas.map((pizza, index) => (
+          <TempCart key={index} index={index} pizza={pizza} removePizza={removePizza}/>
+        ))}
       </div>
 
     </div>
   );
 }
 
-export default Pizzas;
+export default Menu;

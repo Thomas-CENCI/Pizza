@@ -32,20 +32,15 @@ var buttonStyle2 = {
   padding: "10px 15px",
   marginTop: "2vh",
   marginLeft: "10px",
-  marginRight: "10px",
+  marginRight: "20px",
   font: 'bold 1.2em sans-serif',
   borderRadius: "4px",
 };
 
-function supprimer() {
-  console.log("test")
-};
-
-/** Make the button "Ajouter" add the pizza to a new Commande */
 function Order({order, prix}) {
   return(
     <div style={orderStyle}>
-      <h2 style={{font: 'bold 3em "Snell Roundhand"', marginLeft:"0.5em", color: "orange"}}>{order.Client.Nom} {order.Client.Prenom} - 22€</h2>
+      <h2 style={{font: 'bold 3em "Snell Roundhand"', marginLeft:"0.5em", color: "orange"}}>{order.Client.Nom} {order.Client.Prenom} - [prix à calculer]€</h2>
 
       <ul style={{lineHeight: "200%"}}>
 
@@ -53,9 +48,11 @@ function Order({order, prix}) {
         {order.Pizzas.map((pizza) => <li key={pizza.id} style={{font: '1.2em sans-serif', color: "white", listStyle: "none", display: "inline", marginLeft: "1em"}}>{pizza.Nom}</li>)}
 
         <li style={{listStyle: "none", float:"right", marginLeft: "1em"}}>
-          <button style={buttonStyle2} onClick="supprimer()">
-            Supprimer
-          </button>
+          <Link to="/">
+            <button style={buttonStyle2} onClick={()=>alert('Commande annulée.\nA bientôt!')}>
+              Annuler
+            </button>
+          </Link>
         </li>
 
       </ul>

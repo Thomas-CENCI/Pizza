@@ -6,11 +6,10 @@ import {Link} from "react-router-dom";
 var contentStyle = {
   display: "flex",
   flexDirection: "column",
-  minHeight: "100vh",
+  height: "100%",
   width: "100%",
-  justifyContent: "space-around",
   marginLeft: "30px",
-  marginTop: "50em",
+  marginTop: "10em",
 };
 
 var orderStyle = {
@@ -44,16 +43,17 @@ var buttonStyle = {
   right: "5%"
 }
 
-
 function Cart() {
   return(
     <div style={orderStyle}>
       <div className='content' style={contentStyle}>
         <CartCards/>
       </div>
-        <button style={buttonStyle} onclick="alert('Commande payée!\nBellissima vous remercie et vous souhaite un buon appetito!')">
-          Payer
-        </button>
+        <Link to="/">
+          <button style={buttonStyle} onClick={()=>alert('Commande payée!\nBellissima vous remercie et vous souhaite un buon appetito!')}>
+            Payer
+          </button>
+        </Link>
     </div>
   );
 }

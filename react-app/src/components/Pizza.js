@@ -21,32 +21,19 @@ var buttonStyle = {
 	backgroundColor: "orange",
 	padding: "10px 15px",
 	marginTop: "2vh",
+	marginRight:'5vh',
 	font: 'bold 1.2em sans-serif',
 	borderRadius: "4px",
 };
 
-var buttonStyle2 = {
-	border: "0",
-	textDecoration: "none",
-	backgroundColor: "red",
-	padding: "10px 15px",
-	marginTop: "2vh",
-	marginLeft: "10px",
-	marginRight: "10px",
-	font: 'bold 1.2em sans-serif',
-	borderRadius: "4px",
-};
+function Pizza({pizza, tempPizzas, setPizzas}) {
+	console.log("Pizza.tempPizzas :", tempPizzas)
 
-function ajouter() {
-	console.log("test")
-};
+	const addPizza = name => {
+		const newPizza = [...tempPizzas, {name}];
+		setPizzas(newPizza);
+	}
 
-function supprimer() {
-	console.log("test")
-};
-
-/** Make the button "Ajouter" add the pizza to a new Commande */
-function Pizza({pizza}) {
 	return(
 		<div style={pizzaStyle}>
 			<h2 style={{font: 'bold 3em "Snell Roundhand"', marginLeft:"0.5em", color: "orange"}}>{pizza.Nom}  -  {pizza.Prix}€</h2>
@@ -59,11 +46,8 @@ function Pizza({pizza}) {
 				{pizza.Ingredients.map((ingredient) => <li key={ingredient.id} style={{font: '1.2em sans-serif', color: "white", listStyle: "none", display: "inline", marginLeft: "1em"}}>{ingredient.Nom}</li>)}
 
 				<li style={{listStyle: "none", float:"right", marginLeft: "1em"}}>
-					<button style={buttonStyle} onClick="ajouter()">
+					<button style={buttonStyle} onClick={()=>addPizza(pizza.Nom)}>
 						Ajouter
-					</button>
-					<button style={buttonStyle2} onClick="supprimer()">
-						Supprimer
 					</button>
 				</li>
 

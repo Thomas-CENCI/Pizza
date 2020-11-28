@@ -34,6 +34,7 @@ var textStyle2 = {
 	font: 'italic 0.7em "Snell Roundhand"',
 	marginTop: "5vh",
 	marginLeft: "10vh",
+	marginRight: "10vh",
 	marginBottom: "10vh",
 	height: "500%",
 	display: "flex",

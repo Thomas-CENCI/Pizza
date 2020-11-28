@@ -15,6 +15,7 @@ var navStyle = {
   width: "100%",
   boxShadow: "0px 3px 10px rgba(0, 0, 0, 0.3)",
   justifyContent: "space-between",
+  zIndex:'99'
 };
 
 var navLinks = {
@@ -52,7 +53,7 @@ function Nav() {
       		<Logo/>
       	</Link>
         <Link to="/" style={{textDecoration: "none"}}>
-          <Titre text="Bellissima !" color="orange"/>
+          <Titre text="Bellissima!" color="orange"/>
         </Link>
       </div>
 		  <ul className="nav-links" style={navLinks}>
@@ -64,7 +65,7 @@ function Nav() {
           </Link>
   			</li>
         <li>
-          <Link style={{color: "white"}} to="/order">
+          <Link style={{color: "white"}} to="/menu">
             <button style={buttonStyle}>
               Commander
             </button>
