@@ -25,19 +25,9 @@ var buttonStyle = {
   borderRadius: "4px",
 };
 
-var buttonStyle2 = {
-  border: "0",
-  textDecoration: "none",
-  backgroundColor: "red",
-  padding: "10px 15px",
-  marginTop: "2vh",
-  marginLeft: "10px",
-  marginRight: "20px",
-  font: 'bold 1.2em sans-serif',
-  borderRadius: "4px",
-};
 
-function Order({order, prix}) {
+
+function Order({pizza}) {
   return(
     <div style={orderStyle}>
       <h2 style={{font: 'bold 3em "Snell Roundhand"', marginLeft:"0.5em", color: "orange"}}>{order.Client.Nom} {order.Client.Prenom} - [prix à calculer]€</h2>
@@ -45,15 +35,9 @@ function Order({order, prix}) {
       <ul style={{lineHeight: "200%"}}>
 
         <li style={{font: 'bold 1.5em sans-serif', color: "white", listStyle: "none", textAlign: "center", textDecoration: "underline", display: "flex", flexDirection: "row", marginLeft: "1em"}}>Pizzas :</li>
-        {order.Pizzas.map((pizza) => <li key={pizza.id} style={{font: '1.2em sans-serif', color: "white", listStyle: "none", display: "inline", marginLeft: "1em"}}>{pizza.Nom}</li>)}
+        {pizza.Pizzas.map((pizza) => <li key={pizza.id} style={{font: '1.2em sans-serif', color: "white", listStyle: "none", display: "inline", marginLeft: "1em"}}>{pizza.Nom}</li>)}
 
-        <li style={{listStyle: "none", float:"right", marginLeft: "1em"}}>
-          <Link to="/">
-            <button style={buttonStyle2} onClick={()=>alert('Commande annulée.\nA bientôt!')}>
-              Annuler
-            </button>
-          </Link>
-        </li>
+
 
       </ul>
     </div>

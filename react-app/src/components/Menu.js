@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PizzaCards from './PizzaCards';
 import Background from '../pics/BG_pizza4.jpg';
-import {Link} from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 var contentStyle = {
   display: "flex",
@@ -52,7 +52,7 @@ var cartStyle = {
   marginLeft: "10px",
   marginRight: "10px",
   position: 'fixed'
-  };
+};
 
 function TempCart({pizza, index, removePizza}) {
   return(
@@ -65,8 +65,7 @@ function TempCart({pizza, index, removePizza}) {
   )
 };
 
-function Menu() {
-  const [tempPizzas, setPizzas] = useState([]);
+function Menu({tempPizzas, setPizzas}) {
 
   const removePizza = index => {
     const newPizzas = [...tempPizzas];
@@ -75,13 +74,13 @@ function Menu() {
   }
 
   return(
-    <div className='app' style={orderStyle}>
+     <div className='app' style={orderStyle}>
 
       <div className='content' style={contentStyle}>
         <PizzaCards tempPizzas={tempPizzas} setPizzas={setPizzas}/>
       </div>
 
-      <Link style={{color: "white", position:"absolute", marginTop:"10vh", position:"fixed"}} to="/cart">
+      <Link style={{color: "white", position:"absolute", marginTop:"10vh", position:"fixed"}} to={{pathname:"/cart", state:{tempPizzas: {tempPizzas}}}}>
         <button style={buttonStyle}>
           Valider la commande
         </button>
@@ -90,7 +89,7 @@ function Menu() {
       <div className='pizza-list' style={cartStyle}>
         <h1 style={{font: 'bold 1.5em sans-serif', position:"sticky", color: "white", textAlign:"center", marginTop:"10px", marginBottom:"10px"}}>Votre commande</h1>
         {tempPizzas.map((pizza, index) => (
-          <TempCart key={index} index={index} pizza={pizza} removePizza={removePizza}/>
+         <TempCart key={index} index={index} pizza={pizza} removePizza={removePizza}/>
         ))}
       </div>
 

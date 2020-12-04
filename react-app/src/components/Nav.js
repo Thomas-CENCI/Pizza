@@ -3,6 +3,7 @@ import Logo from './Logo';
 import Titre from './Titre';
 import {Link} from "react-router-dom";
 
+
 var navStyle = {
   display: "flex",
   alignItems: "center",

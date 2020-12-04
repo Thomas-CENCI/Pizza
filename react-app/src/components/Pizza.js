@@ -27,7 +27,6 @@ var buttonStyle = {
 };
 
 function Pizza({pizza, tempPizzas, setPizzas}) {
-	console.log("Pizza.tempPizzas :", tempPizzas)
 
 	const addPizza = name => {
 		const newPizza = [...tempPizzas, {name}];

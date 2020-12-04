@@ -1,7 +1,7 @@
 import React from 'react';
 import CartCards from './CartCards';
 import Background from '../pics/BG_pizza5.jpg';
-import {Link} from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 var contentStyle = {
   display: "flex",
@@ -23,7 +23,7 @@ var orderStyle = {
   overflowY: "scroll",
   overflowX: "hidden",
   display: "flex",
-  }
+};
 
 var buttonStyle = {
   border: "0",
@@ -41,13 +41,21 @@ var buttonStyle = {
   position: "absolute",
   textAlign: "center",
   right: "5%"
-}
+};
 
 function Cart() {
+  var cart = []
+  const tempPizzas = useLocation().state
+
+  if(tempPizzas) {
+    cart = tempPizzas.tempPizzas.tempPizzas
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }
+
   return(
     <div style={orderStyle}>
       <div className='content' style={contentStyle}>
-        <CartCards/>
+        <CartCards cart={cart}/>
       </div>
         <Link to="/">
           <button style={buttonStyle} onClick={()=>alert('Commande payée!\nBellissima vous remercie et vous souhaite un buon appetito!')}>

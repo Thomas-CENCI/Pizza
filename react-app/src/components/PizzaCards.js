@@ -15,8 +15,6 @@ function PizzaCards({tempPizzas, setPizzas}) {
 		 // eslint-disable-next-line react-hooks/exhaustive-deps
 		}, []);
 
-	console.log("tempPizzas :", tempPizzas)
-
 	return(
 		<div>s
 			<ul style={{justifyContent: "space-arround", display: "flex", flexDirection: "column", alignItems: "center"}}>
