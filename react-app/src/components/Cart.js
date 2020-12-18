@@ -2,6 +2,7 @@ import React from 'react';
 import CartCards from './CartCards';
 import Background from '../pics/BG_pizza5.jpg';
 import { useLocation, Link } from "react-router-dom";
+import axios from 'axios';
 
 var contentStyle = {
   display: "flex",
@@ -43,22 +44,60 @@ var buttonStyle = {
   right: "5%"
 };
 
+function Paye(pizza_ids) {
+
+  if (pizza_ids.length != 0) {
+    axios ({
+      method: 'post',
+      url: 'api/v1/createClient',
+      data: {
+        Nom: "Dupont",
+        Prenom: "Jean",
+      }
+    }).then(response => {
+      axios ({
+        method: 'post',
+        url: 'api/v1/createCommande',
+        data: {
+          Pizzas: pizza_ids,
+          Client: response.data._id,
+        }
+      })
+    })
+
+    alert('Commande payée!\nBellissima vous remercie et vous souhaite un buon appetito!')}
+  
+    else {
+      alert('Attention !\nVote panier est vide.')
+    }
+    
+}
+
 function Cart() {
   var cart = []
   const tempPizzas = useLocation().state
+  let pizza_ids = []
+  let price = 0
+  if (!(tempPizzas)) {
+    const tempPizzas = []
+  }
 
   if(tempPizzas) {
     cart = tempPizzas.tempPizzas.tempPizzas
+    pizza_ids = tempPizzas.tempPizzas.tempPizzas.map(element => element.id);
+    tempPizzas.tempPizzas.tempPizzas.forEach(element => price += element.price)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }
+
+  console.log("Prix", price)
 
   return(
     <div style={orderStyle}>
       <div className='content' style={contentStyle}>
-        <CartCards cart={cart}/>
+        <CartCards cart={cart} price={price}/>
       </div>
         <Link to="/">
-          <button style={buttonStyle} onClick={()=>alert('Commande payée!\nBellissima vous remercie et vous souhaite un buon appetito!')}>
+          <button style={buttonStyle} onClick={()=>Paye(pizza_ids)}>
             Payer
           </button>
         </Link>

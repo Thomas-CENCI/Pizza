@@ -44,7 +44,7 @@ var buttonStyle = {
 var cartStyle = {
   border: "2px solid black",
   position: "absolute",
-  maxHeight: "50%",
+  maxHeight: "100%",
   width: "16%",
   background: "rgba(0, 0, 0, 0.6)",
   borderRadius: "15px",

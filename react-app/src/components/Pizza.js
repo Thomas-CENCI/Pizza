@@ -28,8 +28,8 @@ var buttonStyle = {
 
 function Pizza({pizza, tempPizzas, setPizzas}) {
 
-	const addPizza = name => {
-		const newPizza = [...tempPizzas, {name}];
+	const addPizza = (name, price, id) => {
+		const newPizza = [...tempPizzas, {name, price, id}];
 		setPizzas(newPizza);
 	}
 
@@ -45,7 +45,7 @@ function Pizza({pizza, tempPizzas, setPizzas}) {
 				{pizza.Ingredients.map((ingredient) => <li key={ingredient.id} style={{font: '1.2em sans-serif', color: "white", listStyle: "none", display: "inline", marginLeft: "1em"}}>{ingredient.Nom}</li>)}
 
 				<li style={{listStyle: "none", float:"right", marginLeft: "1em"}}>
-					<button style={buttonStyle} onClick={()=>addPizza(pizza.Nom)}>
+					<button style={buttonStyle} onClick={()=>addPizza(pizza.Nom, pizza.Prix, pizza._id)}>
 						Ajouter
 					</button>
 				</li>

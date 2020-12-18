@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from "react-router-dom";
 
 var orderStyle = {
   border: "2px solid black",
@@ -25,8 +24,6 @@ var buttonStyle = {
   borderRadius: "4px",
 };
 
-
-
 function Order({pizza}) {
   return(
     <div style={orderStyle}>
@@ -36,8 +33,6 @@ function Order({pizza}) {
 
         <li style={{font: 'bold 1.5em sans-serif', color: "white", listStyle: "none", textAlign: "center", textDecoration: "underline", display: "flex", flexDirection: "row", marginLeft: "1em"}}>Pizzas :</li>
         {pizza.Pizzas.map((pizza) => <li key={pizza.id} style={{font: '1.2em sans-serif', color: "white", listStyle: "none", display: "inline", marginLeft: "1em"}}>{pizza.Nom}</li>)}
-
-
 
       </ul>
     </div>
